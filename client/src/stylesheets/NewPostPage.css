@@ -1,0 +1,172 @@
+/**
+ * NewPostPage Component Styles - Modernized
+ *
+ * @description Modern and clean styles for post creation form.
+ * All classes prefixed with 'np-' to avoid conflicts.
+ */
+
+@keyframes np-slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes np-fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.np-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #F9FAFB; /* Soft, neutral background */
+    border-radius: 16px; /* Slightly rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    animation: np-slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.np-container:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.np-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2D3748; /* Modern dark gray */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: np-fadeIn 0.5s ease-in-out;
+}
+
+.np-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.np-form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    animation: np-fadeIn 0.5s ease-in-out backwards;
+}
+
+.np-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #4A5568; /* Subtle dark gray */
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.np-required {
+    color: #E53E3E; /* Subtle red for required indicators */
+    font-size: 1rem;
+}
+
+.np-input,
+.np-textarea,
+.np-select {
+    padding: 0.875rem;
+    border: 1px solid #CBD5E0; /* Light gray border */
+    border-radius: 12px; /* Rounded corners */
+    font-size: 0.95rem;
+    background: #FFFFFF; /* Clean white background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.np-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.np-input:hover,
+.np-textarea:hover,
+.np-select:hover {
+    border-color: #A0AEC0; /* Medium gray for hover */
+}
+
+.np-input:focus,
+.np-textarea:focus,
+.np-select:focus {
+    outline: none;
+    border-color: #3182CE; /* Modern blue for focus */
+    box-shadow: 0 0 5px rgba(49, 130, 206, 0.2); /* Light blue shadow */
+}
+
+.np-input-error {
+    border-color: #E53E3E; /* Error red */
+    animation: np-shake 0.4s ease-in-out;
+}
+
+.np-error {
+    color: #E53E3E;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: np-fadeIn 0.3s ease-in-out;
+}
+
+.np-char-count {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    font-size: 0.75rem;
+    color: #A0AEC0; /* Muted gray */
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.np-submit {
+    padding: 0.875rem;
+    border: none;
+    border-radius: 12px;
+    background: #3182CE; /* Modern blue */
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.np-submit:hover {
+    background: #2B6CB0; /* Darker blue */
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.2);
+    transform: translateY(-2px);
+}
+
+.np-submit:disabled {
+    background-color: #A0AEC0; /* Disabled gray */
+    cursor: not-allowed;
+    animation: none;
+}
+
+.np-submit-error {
+    text-align: center;
+    color: #E53E3E;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(229, 62, 62, 0.1); /* Light red */
+    border-radius: 8px;
+}

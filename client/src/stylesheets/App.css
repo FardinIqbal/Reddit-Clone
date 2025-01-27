@@ -1,0 +1,202 @@
+:root {
+    --background-white: #ffffff;
+    --navbar-width: 240px;
+    --navbar-width-collapsed: 200px; /* For smaller screens */
+    --banner-height: 60px;
+    --main-padding: 2rem;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --highlight-color: #FF4500; /* Matching Phreddit orange */
+    --secondary-grey: #f6f7f8;
+    --text-primary: #1c1c1c;
+    --text-secondary: #636363;
+    --border-color: rgba(26, 26, 27, 0.1);
+    --hover-color: #f1f1f1;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/**
+ * Base App Layout - Modernized
+ */
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #F9FAFB; /* Modern neutral background */
+}
+
+/* Wrapper for the navbar and main content */
+.content-wrapper {
+    display: flex;
+    flex: 1;
+    background-color: #EDF2F7; /* Light secondary gray */
+}
+
+/* Main content styling */
+.main-content {
+    flex: 1;
+    margin-left: var(--navbar-width);
+    padding: 2rem;
+    background-color: #FFFFFF; /* Clean white background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    height: calc(100vh - var(--banner-height)); /* Full height minus banner */
+    overflow-y: auto;
+    border-radius: 12px; /* Consistent rounded corners */
+    transition: margin-left 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar styles */
+.navbar {
+    width: var(--navbar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2B6CB0; /* Modern blue */
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.collapsed {
+    width: var(--navbar-width-collapsed);
+}
+
+.navbar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.navbar a:hover {
+    background-color: #2C5282; /* Darker blue for hover */
+}
+
+/* Banner styles */
+.banner {
+    height: var(--banner-height);
+    width: 100%;
+    background-color: #2B6CB0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: var(--navbar-width-collapsed);
+        padding: 1.5rem;
+    }
+
+    .navbar {
+        width: var(--navbar-width-collapsed);
+    }
+}
+
+@media (max-width: 480px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-top: var(--banner-height);
+        padding: 1rem;
+    }
+}
+
+/* General button styling */
+.button {
+    background-color: #2B6CB0;
+    color: #FFFFFF;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #2C5282; /* Darker shade for hover */
+}
+
+.button:active {
+    transform: translateY(1px);
+}
+
+/* Card styling */
+.card {
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    border-radius: 12px; /* Consistent rounded corners */
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #2D3748; /* Dark gray */
+}
+
+p {
+    color: #4A5568; /* Subtle gray */
+}
+
+/* Links */
+a {
+    color: #3182CE; /* Consistent blue */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #2B6CB0; /* Darker blue */
+}
+
+/* Form elements */
+input, textarea, select {
+    border: 1px solid #CBD5E0; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    background-color: #FFFFFF;
+    color: #2D3748;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #3182CE; /* Blue border */
+    box-shadow: 0 0 5px rgba(49, 130, 206, 0.2); /* Light blue shadow */
+    outline: none;
+}
+
+/* Success message styling */
+.success-message {
+    color: #2F855A;
+    background-color: #F0FFF4;
+    border: 1px solid #2F855A;
+    padding: 1rem;
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}

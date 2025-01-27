@@ -1,0 +1,229 @@
+/**
+ * Community Page Component - Modernized
+ */
+
+/* Overall layout styling */
+.community-page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #FFFFFF; /* Clean white background */
+    border-radius: 12px; /* Consistent rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Header styling */
+.community-page-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #CBD5E0; /* Light gray */
+    margin-bottom: 1.5rem;
+}
+
+.community-page-name {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #FF4500; /* Modern orange */
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.5px;
+    transition: color 0.2s ease;
+}
+
+.community-page-name:hover {
+    color: #E03E00; /* Slightly darker orange */
+}
+
+.community-page-description {
+    font-size: 1.1rem;
+    color: #4A5568; /* Subtle dark gray */
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    animation: slideIn 0.4s ease-in-out;
+}
+
+.community-page-creation {
+    font-size: 0.9rem;
+    color: #4A5568; /* Subtle dark gray */
+    margin-top: 0.5rem;
+}
+
+/* Stats styling */
+.community-page-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: #4A5568; /* Subtle dark gray */
+    margin-top: 0.75rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.community-page-stats-separator {
+    color: #4A5568; /* Subtle dark gray */
+}
+
+/* Sort buttons styling */
+.community-page-sort-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.community-page-sort-button {
+    background: transparent;
+    border: 1px solid #CBD5E0; /* Light gray border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    color: #2D3748; /* Dark gray */
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.community-page-sort-button.active {
+    background-color: #FF4500; /* Modern orange */
+    color: #FFFFFF;
+    border-color: #FF4500;
+}
+
+.community-page-sort-button:hover {
+    background-color: #EDF2F7; /* Light hover color */
+}
+
+.community-page-sort-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.2); /* Orange focus shadow */
+}
+
+/* Post card styling */
+.community-page-post-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background-color: #FFFFFF; /* Clean white */
+    border: 1px solid #CBD5E0; /* Light gray border */
+    border-radius: 12px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.community-page-post-card:hover {
+    background-color: #EDF2F7; /* Light hover color */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    transform: translateY(-2px);
+}
+
+.community-page-post-card:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2); /* Blue focus shadow */
+}
+
+.community-page-post-metadata {
+    font-size: 0.85rem;
+    color: #4A5568; /* Subtle dark gray */
+    margin-bottom: 0.5rem;
+}
+
+.community-page-post-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2D3748; /* Dark gray */
+    margin: 0.5rem 0;
+    transition: color 0.2s ease;
+}
+
+.community-page-post-title:hover {
+    color: #FF4500; /* Modern orange */
+}
+
+.community-page-link-flair {
+    display: inline-block;
+    background-color: #FF4500; /* Modern orange */
+    color: #FFFFFF;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.community-page-link-flair:hover {
+    background-color: #E03E00; /* Slightly darker orange */
+}
+
+.community-page-post-content {
+    font-size: 1rem;
+    color: #4A5568; /* Subtle dark gray */
+    margin: 0.5rem 0 1rem;
+    line-height: 1.6;
+}
+
+/* Post stats */
+.community-page-post-stats {
+    font-size: 0.85rem;
+    color: #4A5568; /* Subtle dark gray */
+}
+
+/* Error state */
+.community-page-error {
+    text-align: center;
+    padding: 2rem;
+    color: #4A5568; /* Subtle dark gray */
+    font-size: 1.2rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .community-page-container {
+        padding: 1.5rem;
+    }
+
+    .community-page-name {
+        font-size: 1.75rem;
+    }
+
+    .community-page-sort-section {
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .community-page-sort-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .community-page-post-card {
+        padding: 1rem;
+    }
+
+    .community-page-post-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

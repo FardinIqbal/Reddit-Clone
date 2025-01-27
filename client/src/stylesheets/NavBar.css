@@ -1,0 +1,173 @@
+/* Main navbar container */
+.navbar-component {
+    position: fixed;
+    top: 85px; /* Leaves space for the banner */
+    left: 0;
+    height: calc(100vh - 85px); /* Adjusts for banner height */
+    width: 240px;
+    background: #FFFFFF; /* Clean white background */
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #000000; /* Vertical black delimiter */
+    box-shadow: 1px 0 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    transition: width 0.3s ease, box-shadow 0.2s ease;
+}
+
+/* Section styling */
+.navbar-component-section {
+    padding: 0.5rem 1rem;
+}
+
+/* Home link styling */
+.navbar-component-home-link {
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    color: #2D3748; /* Dark gray */
+    background: none;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.navbar-component-home-link:hover {
+    background-color: #FF4500; /* Phreddit orange */
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(255, 69, 0, 0.1); /* Light shadow */
+}
+
+.navbar-component-home-link.active {
+    background-color: #FF4500;
+    color: #FFFFFF;
+}
+
+.navbar-component-home-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.2);
+}
+
+.navbar-component-home-link:active {
+    transform: translateY(1px);
+}
+
+/* Section delimiter */
+.navbar-component-section-delimiter {
+    height: 1px;
+    background-color: #000000; /* Black */
+    margin: 0.5rem 1rem;
+}
+
+/* Communities header */
+.navbar-component-communities-header {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2D3748; /* Dark gray */
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+}
+
+/* Create community button */
+.navbar-component-create-community-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #CBD5E0; /* Light gray background */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    color: #2D3748; /* Dark gray */
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.navbar-component-create-community-btn:hover {
+    background-color: #FF4500; /* Phreddit orange */
+    color: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(255, 69, 0, 0.2);
+}
+
+.navbar-component-create-community-btn.active {
+    background-color: #FF4500;
+    color: #FFFFFF;
+}
+
+.navbar-component-create-community-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.2);
+}
+
+.navbar-component-create-community-btn:active {
+    transform: translateY(1px);
+}
+
+/* Communities list */
+.navbar-component-communities-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.navbar-component-community-link {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: none;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    color: #2D3748; /* Dark gray */
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-align: left;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.navbar-component-community-link:hover {
+    background-color: #EDF2F7; /* Light hover color */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-component-community-link.active {
+    background-color: #EDF2F7;
+    font-weight: 600;
+}
+
+.navbar-component-community-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2); /* Blue focus shadow */
+}
+
+.navbar-component-community-link:active {
+    transform: translateY(1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-component {
+        width: 200px;
+    }
+
+    .navbar-component-home-link,
+    .navbar-component-create-community-btn,
+    .navbar-component-community-link {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-component {
+        width: 180px;
+    }
+
+    .navbar-component-communities-header {
+        font-size: 0.95rem;
+    }
+
+    .navbar-component-community-link {
+        padding: 0.5rem 0.7rem;
+    }
+}
