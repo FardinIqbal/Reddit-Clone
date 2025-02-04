@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Banner from './components/Banner';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
@@ -12,7 +12,8 @@ import NewPostPage from './components/NewPostPage';
 import NewCommentPage from './components/NewCommentPage'; // Import the NewCommentPage component
 import './stylesheets/App.css';
 
-const API_BASE_URL = 'http://localhost:8000/api';
+// ✅ Use the Render backend URL, with a fallback for local development
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'https://reddit-clone-1-yf7b.onrender.com/api';
 
 function App() {
     const [communities, setCommunities] = useState([]);
@@ -24,7 +25,10 @@ function App() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [communitiesRes, postsRes] = await Promise.all([axios.get(`${API_BASE_URL}/communities`), axios.get(`${API_BASE_URL}/posts`)]);
+                const [communitiesRes, postsRes] = await Promise.all([
+                    axios.get(`${API_BASE_URL}/communities`),
+                    axios.get(`${API_BASE_URL}/posts`)
+                ]);
 
                 setCommunities(communitiesRes.data);
                 setPosts(postsRes.data);
@@ -45,7 +49,9 @@ function App() {
     const incrementViewCount = async (postId) => {
         try {
             const response = await axios.patch(`${API_BASE_URL}/posts/${postId}/views`);
-            setPosts((prevPosts) => prevPosts.map((post) => (post._id === postId ? response.data : post)));
+            setPosts((prevPosts) =>
+                prevPosts.map((post) => (post._id === postId ? response.data : post))
+            );
         } catch (err) {
             console.error('Error incrementing view count:', err);
         }
@@ -70,34 +76,36 @@ function App() {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
-    return (<Router>
+    return (
+        <Router>
             <div className="app">
-                <Banner/>
+                <Banner />
                 <div className="content-wrapper">
-                    <NavBar communities={communities}/>
+                    <NavBar communities={communities} />
                     <main className="main-content">
                         <Routes>
-                            <Route path="/" element={<HomePage posts={posts}/>}/>
-                            <Route path="/community/:communityId" element={<CommunityPage/>}/>
-                            <Route path="/search" element={<SearchResults posts={posts}/>}/>
+                            <Route path="/" element={<HomePage posts={posts} />} />
+                            <Route path="/community/:communityId" element={<CommunityPage />} />
+                            <Route path="/search" element={<SearchResults posts={posts} />} />
                             <Route
                                 path="/post/:postId"
-                                element={<PostPage incrementViewCount={incrementViewCount}/>}
+                                element={<PostPage incrementViewCount={incrementViewCount} />}
                             />
                             <Route
                                 path="/create-community"
-                                element={<NewCommunityPage onCommunityCreated={handleCommunityCreated}/>}
+                                element={<NewCommunityPage onCommunityCreated={handleCommunityCreated} />}
                             />
                             <Route
                                 path="/create-post"
-                                element={<NewPostPage communities={communities} onPostCreated={handlePostCreated}/>}
+                                element={<NewPostPage communities={communities} onPostCreated={handlePostCreated} />}
                             />
-                            <Route path="/post/:postId/comment" element={<NewCommentPage/>}/>
+                            <Route path="/post/:postId/comment" element={<NewCommentPage />} />
                         </Routes>
                     </main>
                 </div>
             </div>
-        </Router>);
+        </Router>
+    );
 }
 
 export default App;
