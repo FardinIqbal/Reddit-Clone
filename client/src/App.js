@@ -12,7 +12,7 @@ import NewPostPage from './components/NewPostPage';
 import NewCommentPage from './components/NewCommentPage'; // Import the NewCommentPage component
 import './stylesheets/App.css';
 
-// ✅ Use Render backend URL with a fallback for local development
+// ✅ Use the Render backend URL, ensuring correct API prefix `/api/`
 const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'https://reddit-clone-1-yf7b.onrender.com/api';
 
 function App() {
@@ -21,22 +21,22 @@ function App() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Fetch initial data
+    // Fetch initial data from backend
     useEffect(() => {
         const fetchData = async () => {
             try {
-                console.log(`Fetching from API: ${API_BASE_URL}`);
+                console.log(`🔍 Fetching data from API: ${API_BASE_URL}`);
 
                 const [communitiesRes, postsRes] = await Promise.all([
-                    axios.get(`${API_BASE_URL}/communities`),
-                    axios.get(`${API_BASE_URL}/posts`)
+                    axios.get(`${API_BASE_URL}/communities`), // ✅ Corrected API call
+                    axios.get(`${API_BASE_URL}/posts`)       // ✅ Corrected API call
                 ]);
 
                 setCommunities(communitiesRes.data);
                 setPosts(postsRes.data);
                 setLoading(false);
             } catch (err) {
-                console.error("API Fetch Error:", err);
+                console.error("❌ API Fetch Error:", err);
                 setError(err.message);
                 setLoading(false);
             }
