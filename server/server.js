@@ -23,10 +23,16 @@ const LinkFlair = require('./models/linkflairs');
 app.use(cors()); // Enable CORS for cross-origin requests
 app.use(express.json()); // Parse incoming JSON payloads
 
-// MongoDB connection
-mongoose.connect('mongodb://127.0.0.1:27017/phreddit')
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Could not connect to MongoDB:', err));
+require('dotenv').config();  // Enable environment variables
+
+const mongoURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/phreddit';
+
+mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => console.log('✅ Connected to MongoDB successfully'))
+.catch(err => console.error('❌ MongoDB Connection Error:', err));
 
 /**
  * Helper function to recursively populate comments
